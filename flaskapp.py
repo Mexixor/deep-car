@@ -25,7 +25,7 @@ class FixedDropout(layers.Dropout):
         return tuple(noise_shape)
 
 
-model = load_model('G:/Mon Drive/model.h5', custom_objects={'FixedDropout': FixedDropout(rate=0.4)})
+model = load_model('G:\Mon Drive\model (2).h5', custom_objects={'FixedDropout': FixedDropout(rate=0.4)})
 
 model.make_predict_function()
 # reading the data from the file
@@ -43,7 +43,7 @@ def predict_label(img_path):
     i = np.array(i)
     i = i.reshape((1, 240, 240, 3))
     p = model.predict (i)
-    
+
     in_max = np.where(p[0] == np.max(p))
     return d[in_max[0][0]]
 
