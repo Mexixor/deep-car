@@ -1,37 +1,18 @@
 from flask import Flask, render_template, request, jsonify, url_for, flash, redirect
-
 from tensorflow.keras.models import load_model
-
 from tensorflow.keras.preprocessing import image
-
 import numpy as np
-
 import requests  # to get image from the web
-
 import shutil  # to save it locally
-
 from PIL import Image
-
 import ast
-
 from tensorflow.keras import backend, layers
-
 import ast
-
 from tensorflow.keras import backend, layers
-
 import os
 
-
-
-
 app = Flask(__name__, template_folder='templates')
-
 app.config['SECRET_KEY'] = 'kjqè73JJhsjhvahel'
-
-
-
-
 
 class FixedDropout(layers.Dropout):
 
@@ -53,7 +34,7 @@ class FixedDropout(layers.Dropout):
 
 
 
-model = load_model('G:\Mon Drive\model (2).h5',
+model = load_model('G:\Mon Drive\model_zineb.h5',
 
                    custom_objects={'FixedDropout': FixedDropout(rate=0.4)})
 
