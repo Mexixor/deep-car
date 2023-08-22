@@ -39,10 +39,11 @@ d = ast.literal_eval(data)
 def predict_label(img_path):
     i = image.load_img(img_path)
     new_size = (240, 240)
-    i= image.resize(new_size)
+    i= i.resize(new_size)
     i = np.array(i)
     i = i.reshape((1, 240, 240, 3))
     p = model.predict (i)
+    
     in_max = np.where(p[0] == np.max(p))
     return d[in_max[0][0]]
 
